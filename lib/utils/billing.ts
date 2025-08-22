@@ -8,7 +8,7 @@ export async function generateBillNumber(): Promise<string> {
     // Fallback for SSR
     const today = new Date().toISOString().split('T')[0].replace(/-/g, '');
     const randomSequence = Math.floor(Math.random() * 9999) + 1;
-    return `DC-${today}-${randomSequence.toString().padStart(4, '0')}`;
+    return `DL-${today}-${randomSequence.toString().padStart(4, '0')}`;
   }
 
   const today = nowColombo().toISOString().split('T')[0].replace(/-/g, '');
@@ -21,7 +21,7 @@ export async function generateBillNumber(): Promise<string> {
     last_sequence: nextSequence,
   });
   
-  return `DC-${today}-${nextSequence.toString().padStart(4, '0')}`;
+  return `DL-${today}-${nextSequence.toString().padStart(4, '0')}`;
 }
 
 export function calculateBill(

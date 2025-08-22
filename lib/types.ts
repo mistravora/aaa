@@ -2,7 +2,7 @@ export type UnitBase = "g" | "pcs";
 export type SaleUnit = "kg" | "g" | "100g" | "pcs" | "pack";
 export type TaxMode = "none" | "inclusive" | "exclusive";
 export type Role = "owner" | "manager" | "cashier";
-export type PaymentType = "cash" | "card" | "wallet" | "bank";
+export type PaymentMethod = "cash" | "card" | "wallet" | "bank";
 
 export interface User {
   email: string;
@@ -58,7 +58,7 @@ export interface SaleLine {
 }
 
 export interface Payment {
-  type: PaymentType;
+  type: PaymentMethod;
   amount: number;
   ref?: string;
 }
@@ -107,7 +107,7 @@ export interface SupplierPayment {
   invoice_id: string;
   date: string;
   amount: number;
-  method: PaymentType;
+  method: PaymentMethod;
   ref?: string;
 }
 

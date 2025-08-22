@@ -1,24 +1,33 @@
-'use client';
-
-import { cn } from '@/lib/utils';
+import React from 'react';
 
 interface MoneyProps {
   amount: number;
   currency?: string;
+  showCurrency?: boolean;
   className?: string;
 }
 
-export function Money({ amount, currency = 'LKR', className }: MoneyProps) {
+export function Money({ 
+  amount, 
+  currency = 'LKR', 
+  showCurrency = true, 
+  className = '' 
+}: MoneyProps) {
   const formatAmount = (value: number) => {
     return new Intl.NumberFormat('en-LK', {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
-    }).format(value);
+    }).format(Math.abs(value));
   };
 
+  const isNegative = amount < 0;
+  const displayAmount = formatAmount(amount);
+
   return (
-    <span className={cn('font-medium', className)}>
-      {currency} {formatAmount(amount)}
+    <span className={`${isNegative ? 'text-red-600' : ''} ${className}`}>
+      {isNegative && '-'}
+      {showCurrency && `${currency} `}
+      {displayAmount}
     </span>
   );
 }

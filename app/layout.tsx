@@ -7,8 +7,8 @@ import { Navbar } from '@/components/layout/navbar';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Dubai Store POS - Premium Food & Beverages',
-  description: 'Complete Point of Sale system for Dubai Store with inventory management, supplier tracking, and comprehensive reporting.',
+  title: 'Dilshad Chocolates POS - Premium Chocolates & Confectionery',
+  description: 'Complete Point of Sale system for Dilshad Chocolates with inventory management, supplier tracking, and comprehensive reporting.',
   manifest: '/manifest.json',
   themeColor: '#3B82F6',
 };

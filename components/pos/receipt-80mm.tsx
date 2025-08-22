@@ -18,9 +18,9 @@ export function Receipt80mm({ sale, products, batches }: Receipt80mmProps) {
     <div id="receipt-80mm" className="receipt-80mm max-w-xs mx-auto bg-white font-mono text-xs leading-tight print:max-w-none print:mx-0">
       {/* Header */}
       <div className="text-center border-b pb-2 mb-2">
-        <h2 className="font-bold text-sm">DUBAI STORE</h2>
-        <p className="text-xs">Premium Food & Beverages</p>
-        <p className="text-xs">123 Business District, Colombo 03</p>
+        <h2 className="font-bold text-sm">DILSHAD CHOCOLATES</h2>
+        <p className="text-xs">Premium Chocolates & Confectionery</p>
+        <p className="text-xs">456 Galle Road, Colombo 03</p>
         <p className="text-xs">Tel: +94 11 234 5678</p>
         <p className="text-xs">TIN: 123456789</p>
       </div>

@@ -1,7 +1,7 @@
 {
-  "name": "Dubai Store POS",
-  "short_name": "Dubai POS",
-  "description": "Complete Point of Sale system for Dubai Store with inventory management and reporting",
+  "name": "Dilshad Chocolates POS",
+  "short_name": "Dilshad POS",
+  "description": "Complete Point of Sale system for Dilshad Chocolates with inventory management and reporting",
   "start_url": "/pos",
   "display": "standalone",
   "background_color": "#ffffff",
