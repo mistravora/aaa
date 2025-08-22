@@ -7,12 +7,18 @@ interface MoneyProps {
   showCurrency?: boolean;
 }
 
-export function Money({ 
-  amount, 
-  currency = 'LKR', 
-  showCurrency = true, 
-  className = '' 
-}: MoneyProps) {
+export function Money(props: MoneyProps) {
+  const {
+    amount,
+    currency,
+    showCurrency,
+    className
+  } = props;
+  
+  const finalCurrency = currency || 'LKR';
+  const finalShowCurrency = showCurrency !== undefined ? showCurrency : true;
+  const finalClassName = className || '';
+  
   const formatAmount = (value: number) => {
     return new Intl.NumberFormat('en-LK', {
       minimumFractionDigits: 2,
@@ -21,8 +27,8 @@ export function Money({
   };
 
   const isNegative = amount < 0;
-  const displayAmount = formatAmount(amount);
-
+    <span className={finalClassName}>
+      {finalShowCurrency && `${finalCurrency} `}{formatAmount(amount)}
   return (
     <span className={`${isNegative ? 'text-red-600' : ''} ${className}`}>
       {isNegative && '-'}
