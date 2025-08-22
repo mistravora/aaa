@@ -1,18 +1,24 @@
+'use client';
+
+import { cn } from '@/lib/utils';
+
 interface MoneyProps {
   amount: number;
   currency?: string;
   className?: string;
 }
 
-export function Money({ amount, currency = 'LKR', className = '' }: MoneyProps) {
-  const formatted = new Intl.NumberFormat('en-US', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(amount);
+export function Money({ amount, currency = 'LKR', className }: MoneyProps) {
+  const formatAmount = (value: number) => {
+    return new Intl.NumberFormat('en-LK', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(value);
+  };
 
   return (
-    <span className={className}>
-      {currency} {formatted}
+    <span className={cn('font-medium', className)}>
+      {currency} {formatAmount(amount)}
     </span>
   );
 }

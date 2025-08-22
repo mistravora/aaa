@@ -1,6 +1,5 @@
 import { CartItem, Sale, SaleLine, Payment, TaxMode } from '../types';
 import { calculateTax } from './tax';
-import { toBase } from './units';
 import { db } from '../db';
 import { nowColombo } from './time';
 

@@ -34,7 +34,6 @@ export function TileGrid({ products, onSelectProduct }: TileGridProps) {
           <div className="text-xs text-green-600 font-semibold">
             <Money 
               amount={saleUnitPrice(product, product.default_sale_unit)} 
-              className="text-xs"
             />
             /{product.default_sale_unit}
           </div>
