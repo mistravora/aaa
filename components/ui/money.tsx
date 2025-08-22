@@ -5,10 +5,9 @@ interface MoneyProps {
   currency?: string;
   className?: string;
   showCurrency?: boolean;
-  className?: string;
 }
 
-export function Money({ amount, currency = 'LKR', className }: MoneyProps) {
+export function Money({ 
   amount, 
   currency = 'LKR', 
   showCurrency = true, 
@@ -22,7 +21,7 @@ export function Money({ amount, currency = 'LKR', className }: MoneyProps) {
   };
 
   const isNegative = amount < 0;
-    <span className={`font-medium ${className || ''}`}>
+  const displayAmount = formatAmount(amount);
 
   return (
     <span className={`${isNegative ? 'text-red-600' : ''} ${className}`}>
