@@ -12,7 +12,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 import { useAuthStore } from '@/lib/stores/auth';
 import { useSettingsStore } from '@/lib/stores/settings';
-import { resetDemoData } from '@/lib/mock-seed';
 import { Settings, Database, CreditCard, Package, Receipt, Shield } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -34,6 +33,7 @@ export default function AdminPage() {
     
     setLoading(true);
     try {
+      const { resetDemoData } = await import('@/lib/mock-seed');
       await resetDemoData();
       toast.success('Demo data has been reset successfully');
     } catch (error) {

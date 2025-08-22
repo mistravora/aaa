@@ -3,7 +3,6 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/lib/stores/auth';
-import { seedMockData } from '@/lib/mock-seed';
 import { setupPrintStyles } from '@/lib/utils/print';
 
 export default function HomePage() {
@@ -19,6 +18,7 @@ export default function HomePage() {
       // Seed mock data on first load
       const hasSeeded = localStorage.getItem('pos-demo-seeded');
       if (!hasSeeded) {
+        const { seedMockData } = await import('@/lib/mock-seed');
         await seedMockData();
         localStorage.setItem('pos-demo-seeded', 'true');
       }
