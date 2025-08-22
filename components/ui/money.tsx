@@ -3,11 +3,12 @@ import React from 'react';
 interface MoneyProps {
   amount: number;
   currency?: string;
+  className?: string;
   showCurrency?: boolean;
   className?: string;
 }
 
-export function Money({ 
+export function Money({ amount, currency = 'LKR', className }: MoneyProps) {
   amount, 
   currency = 'LKR', 
   showCurrency = true, 
@@ -21,7 +22,7 @@ export function Money({
   };
 
   const isNegative = amount < 0;
-  const displayAmount = formatAmount(amount);
+    <span className={`font-medium ${className || ''}`}>
 
   return (
     <span className={`${isNegative ? 'text-red-600' : ''} ${className}`}>

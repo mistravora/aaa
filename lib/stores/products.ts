@@ -26,7 +26,7 @@ export const useProductsStore = create<ProductsState>((set, get) => ({
         set({ loading: false });
         return;
       }
-      const products = await db.products.where('archived').notEqual(true).toArray();
+      const products = await db.products.where('archived').anyOf([false, undefined]).or('archived').equals(null).toArray();
       set({ products, loading: false });
     } catch (error) {
       console.error('Error loading products:', error);

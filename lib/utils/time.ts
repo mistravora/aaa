@@ -4,19 +4,28 @@ export function nowUTC(): Date {
 }
 
 export function nowColombo(): Date {
-  return new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Colombo" }));
+  // Get current time in Asia/Colombo timezone
+  const now = new Date();
+  const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  const colomboOffset = 5.5; // UTC+5:30
+  return new Date(utc + (colomboOffset * 3600000));
 }
 
 export function formatColombo(date: Date | string): string {
   const d = typeof date === 'string' ? new Date(date) : date;
-  return d.toLocaleString("en-US", { 
-    timeZone: "Asia/Colombo",
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-  });
+  try {
+    return d.toLocaleString("en-US", { 
+      timeZone: "Asia/Colombo",
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+  } catch (error) {
+    // Fallback if timezone is not supported
+    return d.toLocaleString();
+  }
 }
 
 export function todayColombo(): string {
