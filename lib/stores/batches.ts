@@ -22,6 +22,10 @@ export const useBatchesStore = create<BatchesState>((set, get) => ({
   loadBatches: async () => {
     set({ loading: true });
     try {
+      if (!db) {
+        set({ loading: false });
+        return;
+      }
       const batches = await db.batches.toArray();
       set({ batches, loading: false });
     } catch (error) {

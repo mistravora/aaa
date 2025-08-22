@@ -18,6 +18,10 @@ export const useSalesStore = create<SalesState>((set, get) => ({
   loadSales: async () => {
     set({ loading: true });
     try {
+      if (!db) {
+        set({ loading: false });
+        return;
+      }
       const sales = await db.sales.orderBy('saleAt').reverse().toArray();
       set({ sales, loading: false });
     } catch (error) {

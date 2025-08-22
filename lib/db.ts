@@ -42,4 +42,5 @@ export class PosDatabase extends Dexie {
   }
 }
 
-export const db = new PosDatabase();
+// Only initialize database in browser environment
+export const db = typeof window !== 'undefined' ? new PosDatabase() : null as any;

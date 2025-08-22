@@ -3,6 +3,11 @@ import { db } from './db';
 import { addDays } from './utils/time';
 
 export async function seedMockData() {
+  // Only run in browser environment
+  if (typeof window === 'undefined' || !db) {
+    return;
+  }
+
   try {
     // Clear existing data
     await Promise.all([
